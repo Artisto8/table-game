@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Настільні ігри</title>
+    <link rel="stylesheet" href="table_game.css">
+</head>
+<body>
+    <header class="header">
+        <h1 class="title">Вітаю у настільних іграх!</h1>
+    </header>
+    <main class="main-content">
+        <div class="game-selection">
+            <div class="game-photo">
+                <!-- Місце під фото гри -->
+                <img src="img_placeholder.jpg" alt="Фото гри" class="photo-img">
+            </div>
+            <div class="game-controls">
+                <div class="custom-dropdown">
+                    <button class="dropdown-btn" id="dropdownBtn">Обрати гру ▼</button>
+                    <div class="dropdown-list" id="dropdownList">
+                        <div class="dropdown-item" data-url="who_are_you/who_are_you.html">Хто я?</div>
+                        <!-- Додайте інші ігри тут -->
+                    </div>
+                </div>
+                <button class="join-room-btn">Доєднатись до кімнати</button>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer-content">
+            <p>Зв'язок: <a href="mailto:artsto2008@gmail.com">artsto2008@gmail.com</a></p>
+            <p>Цей сайт створено для любителів настільних ігор. Обирайте гру, приєднуйтесь до кімнати та весело проводьте час з друзями!</p>
+        </div>
+    </footer>
+    <script>
+    const dropdownBtn = document.getElementById('dropdownBtn');
+    const dropdownList = document.getElementById('dropdownList');
+
+    dropdownBtn.addEventListener('click', () => {
+        dropdownList.classList.toggle('show');
+    });
+
+    document.querySelectorAll('.dropdown-item').forEach(item => {
+        item.addEventListener('click', function() {
+            const url = item.getAttribute('data-url');
+            if (url) window.location.href = url;
+        });
+    });
+
+    // Закрити список при кліку поза ним
+    document.addEventListener('click', function(e) {
+        if (!dropdownBtn.contains(e.target) && !dropdownList.contains(e.target)) {
+            dropdownList.classList.remove('show');
+        }
+    });
+
+    document.querySelector('.join-room-btn').addEventListener('click', function() {
+        alert('Функція доєднання до кімнати буде доступна незабаром!');
+    });
+    </script>
+</body>
+</html>

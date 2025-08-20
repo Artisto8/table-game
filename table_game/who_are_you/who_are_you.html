@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гра 'Хто я?'</title>
+    <link rel="stylesheet" href="who_are_you.css">
+</head>
+<body>
+    <div class="container">
+        <div class="search-room">
+            <input type="text" class="search-input" id="roomCodeInput" placeholder="Ввести код кімнати...">
+            <button class="join-room-btn" id="joinRoomBtn">Зайти в кімнату</button>
+            <button class="create-room-btn" id="createRoomBtn">Створити кімнату</button>
+        </div>
+        <div class="game-info">
+            <h1>Гра "Хто я?"</h1>
+            <p>
+                <strong>Опис:</strong> "Хто я?" — це весела гра для компанії, де кожен гравець намагається відгадати, ким він є, ставлячи запитання іншим учасникам.<br><br>
+                <strong>Правила:</strong>
+                <ul>
+                    <li>Кожному гравцю загадують персонажа, предмет або тварину, але він не знає, хто це.</li>
+                    <li>Гравець ставить питання, на які можна відповісти "так" або "ні".</li>
+                    <li>Інші учасники відповідають на питання.</li>
+                    <li>Мета — відгадати свою роль за мінімальну кількість запитань.</li>
+                </ul>
+                <strong>Поради:</strong>
+                <ul>
+                    <li>Ставте загальні питання на початку, щоб звузити коло пошуку.</li>
+                    <li>Не бійтеся фантазувати та жартувати!</li>
+                </ul>
+            </p>
+        </div>
+    </div>
+    <script>
+        document.getElementById('createRoomBtn').addEventListener('click', function() {
+            window.location.href = 'games/create_room.html';
+        });
+
+        document.getElementById('joinRoomBtn').addEventListener('click', function() {
+            const roomCode = document.getElementById('roomCodeInput').value;
+            if (roomCode.trim() !== '') {
+                window.location.href = `games/room.html?code=${roomCode}&camera=yes&players=4`;
+            } else {
+                alert('Будь ласка, введіть код кімнати.');
+            }
+        });
+    </script>
+</body>
+</html>

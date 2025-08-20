@@ -1,0 +1,254 @@
+body {
+    background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: linear-gradient(90deg, rgba(142,3,177,0.95) 0%, rgba(200, 18, 206, 0.95) 100%);
+    border-bottom: 4px solid #4d0270;
+    border-radius: 0 0 2em 2em;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    padding: 32px 0 24px 0;
+}
+
+.title {
+    text-align: center;
+    font-size: 3rem;
+    color: #fff;
+    font-weight: bold;
+    margin: 0;
+}
+
+.main-content {
+    max-width: 900px;
+    margin: 40px auto 0 auto;
+    padding: 24px;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(60, 0, 120, 0.12);
+}
+
+.game-selection {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.game-photo {
+    flex: 1 1 220px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 220px;
+    min-height: 220px;
+    background: #f3f3f3;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(60, 0, 120, 0.08);
+}
+
+.photo-img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    background: #ddd;
+}
+
+.game-controls {
+    flex: 2 1 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    align-items: flex-start;
+}
+
+.form-select {
+    width: 100%;
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    border: 2px solid #6366f1;
+    border-radius: 32px; /* більше заокруглення */
+    outline: none;
+    background: #6366f1;
+    color: #ffffff;
+    font-weight: bold;
+    transition: border-color 0.5s, box-shadow 0.3s;
+    margin-bottom: 8px;
+    box-shadow: 0 2px 8px rgba(255, 214, 0, 0.08);
+    appearance: none;
+}
+
+.form-select:focus {
+    border-color: #ffffff;
+    box-shadow: 0 0 0 2px #ffd60055;
+}
+
+/* Заокруглення для option не працює у більшості браузерів, але можна задати кольори */
+.form-select option {
+    background: #222;
+    color: #ffd600;
+    font-weight: bold;
+    border: none;
+    padding: 12px 24px;
+}
+
+.form-select option:hover, .form-select option:checked {
+    background: #6366f1;
+    color: #222;
+}
+
+.join-room-btn {
+    padding: 12px 32px;
+    font-size: 1.1rem;
+    background: linear-gradient(90deg, #6366f1 0%, #8b5cf6 100%);
+    color: #fff;
+    border: none;
+    border-radius: 21px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.1s;
+}
+
+.join-room-btn:hover {
+    background: linear-gradient(90deg, #8b5cf6 0%, #6366f1 100%);
+    transform: scale(1.05);
+}
+
+.game-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 12px;
+}
+
+.game-list-btn {
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    background: linear-gradient(90deg, #05e3eb 0%, #0ab2c9 100%);
+    color: #fff;
+    border: none;
+    border-radius: 32px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.1s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.game-list-btn:hover, .game-list-btn:focus {
+    background: linear-gradient(90deg, #ffd600 0%, #0ca6ff 100%);
+    color: #222;
+    transform: scale(1.04);
+    box-shadow: 0 4px 16px rgba(60, 0, 120, 0.12);
+}
+
+.footer {
+    margin-top: 48px;
+    background: linear-gradient(90deg, #8b5cf6 0%, #6366f1 100%);
+    color: #fff;
+    padding: 24px 0;
+    border-radius: 2em 2em 0 0;
+    box-shadow: 0 -4px 16px rgba(0,0,0,0.08);
+}
+
+.footer-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer a {
+    color: #fff;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.custom-dropdown {
+    position: relative;
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+.dropdown-btn {
+    width: 100%;
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    border: 2px solid #0ab2c9;
+    border-radius: 32px;
+    background: #05e3eb;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: left;
+    transition: border-color 0.3s, box-shadow 0.2s;
+}
+
+.dropdown-btn:focus {
+    border-color: #ffd600;
+    box-shadow: 0 0 0 2px #ffd60055;
+}
+
+.dropdown-list {
+    display: none;
+    position: absolute;
+    top: 110%;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border-radius: 24px;
+    box-shadow: 0 4px 16px rgba(60, 0, 120, 0.12);
+    z-index: 10;
+    max-height: 220px;
+    overflow-y: auto;
+}
+
+.dropdown-list.show {
+    display: block;
+}
+
+.dropdown-item {
+    padding: 14px 24px;
+    cursor: pointer;
+    font-size: 1.08rem;
+    color: #222;
+    border-bottom: 1px solid #eee;
+    transition: background 0.2s, color 0.2s;
+    border-radius: 18px;
+}
+
+.dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.dropdown-item:hover, .dropdown-item:focus {
+    background: #ffd600;
+    color: #222;
+}
+
+@media (max-width: 700px) {
+    .main-content {
+        padding: 12px;
+    }
+    .game-selection {
+        flex-direction: column;
+        gap: 18px;
+    }
+    .game-photo {
+        min-width: 120px;
+        min-height: 120px;
+    }
+    .photo-img {
+        width: 120px;
+        height: 120px;
+    }
+    .game-controls {
+        width: 100%;
+        align-items: stretch;
+    }
+}

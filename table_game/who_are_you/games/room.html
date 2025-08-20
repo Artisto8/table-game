@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Кімната гри</title>
+    <link rel="stylesheet" href="room.css">
+</head>
+<body>
+    <div id="roomInfo"></div>
+    <div id="videos" class="videos-grid"></div>
+    <script>
+    // Отримати параметри з адреси
+    const params = new URLSearchParams(window.location.search);
+    const roomCode = params.get('code');
+    const camera = params.get('camera');
+    const players = parseInt(params.get('players')) || 4;
+
+    document.getElementById('roomInfo').textContent = `Код кімнати: ${roomCode}`;
+
+    // Створити ячейки для камер
+    const videosContainer = document.getElementById('videos');
+    for (let i = 0; i < players; i++) {
+        const cell = document.createElement('div');
+        cell.className = 'video-cell';
+        cell.textContent = `Гравець ${i + 1}`;
+        videosContainer.appendChild(cell);
+    }
+
+    // Якщо потрібна камера, показати потік у першій ячейці
+    if (camera === 'yes') {
+        navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+            .then(stream => {
+                const video = document.createElement('video');
+                video.srcObject = stream;
+                video.autoplay = true;
+                video.muted = true;
+                video.playsInline = true;
+                video.className = 'user-video';
+                videosContainer.children[0].textContent = '';
+                videosContainer.children[0].appendChild(video);
+            })
+            .catch(err => {
+                alert('Не вдалося отримати доступ до камери або мікрофона: ' + err.message);
+            });
+    }
+
+    window.location.href = `room.html?code=${roomCode}&camera=${camera}&players=${players}`;
+    </script>
+</body>
+</html>
